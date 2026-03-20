@@ -536,6 +536,611 @@
     <div class="card quick-links-card">
       <span class="section-label">関連する手続き</span>
       <div class="quick-links">
+        <a class="quick-link" href="../zairyu/">
+          <span class="quick-link-label">在留届（海外在住者の届出）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="../mynumber/">
+          <span class="quick-link-label">マイナンバーカード（海外での手続き）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m03_01_14.html" target="_blank" rel="noopener">
+          <span class="quick-link-label">申請用写真の規格について</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m02_01_04.html" target="_blank" rel="noopener">
+          <span class="quick-link-label">よくある質問（パスポート）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m03_01_17.html" target="_blank" rel="noopener">
+          <span class="quick-link-label">領事出張サービス（遠隔地の方）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      このページは個人によるリデザインのプロトタイプです。<br>
+      公式情報は
+      <a href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m03_01.html" target="_blank" rel="noopener">
+        在サンフランシスコ総領事館の公式サイト
+      </a>
+      をご確認ください。
+    </div>
+
+  </div><!-- /page-wrapper -->
+
+  <script>
+    let feeOpen = false;
+
+    function selectCase(cardEl, type) {
+      document.querySelectorAll('.case-card').forEach(c => c.classList.remove('active'));
+      cardEl.classList.add('active');
+
+      document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('visible'));
+      const panel = document.getElementById('detail-' + type);
+      if (panel) panel.classList.add('visible');
+
+      const ctaSection = document.getElementById('cta-buttons');
+      ctaSection.classList.add('visible');
+
+      const btnOnline = document.getElementById('btn-online');
+      if (type === 'change' || type === 'lost') {
+        btnOnline.style.display = 'none';
+      } else {
+        btnOnline.style.display = 'block';
+      }
+
+      document.getElementById('fee-section').style.display = 'block';
+    }
+
+    function toggleFee() {
+      feeOpen = !feeOpen;
+      document.getElementById('fee-table').classList.toggle('visible', feeOpen);
+      document.getElementById('fee-arrow').classList.toggle('open', feeOpen);
+      document.getElementById('fee-toggle-btn').setAttribute('aria-expanded', feeOpen);
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>パスポート申請 | 在サンフランシスコ日本国総領事館</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f5f5f3;
+      --bg-tertiary: #efefec;
+      --bg-info: #e6f1fb;
+      --bg-warning: #faeeda;
+      --bg-danger: #fcebeb;
+      --bg-success: #eaf3de;
+      --text-primary: #1a1a18;
+      --text-secondary: #5f5e5a;
+      --text-tertiary: #888780;
+      --text-info: #185fa5;
+      --text-warning: #854f0b;
+      --text-danger: #a32d2d;
+      --border: rgba(0,0,0,0.12);
+      --border-secondary: rgba(0,0,0,0.22);
+      --border-info: #378add;
+      --border-warning: #ef9f27;
+      --border-danger: #e24b4a;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #1e1e1c;
+        --bg-secondary: #2a2a27;
+        --bg-tertiary: #333330;
+        --bg-info: #042c53;
+        --bg-warning: #412402;
+        --bg-danger: #501313;
+        --bg-success: #173404;
+        --text-primary: #f0efea;
+        --text-secondary: #b4b2a9;
+        --text-tertiary: #888780;
+        --text-info: #85b7eb;
+        --text-warning: #fac775;
+        --text-danger: #f09595;
+        --border: rgba(255,255,255,0.12);
+        --border-secondary: rgba(255,255,255,0.22);
+        --border-info: #378add;
+        --border-warning: #ef9f27;
+        --border-danger: #e24b4a;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 1.5rem 1rem;
+    }
+
+    .page-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      border: 0.5px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    /* Header */
+    .header {
+      padding: 1rem 1.25rem;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
+    .header-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+    /* Notice */
+    .notice {
+      background: var(--bg-warning);
+      border-left: 3px solid var(--border-warning);
+      padding: 10px 14px;
+      margin: 1rem 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .notice-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-warning);
+      margin-bottom: 3px;
+    }
+    .notice-text {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* Case selector */
+    .section { padding: 1.25rem 1.25rem 1rem; }
+    .section-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .case-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      background: var(--bg-primary);
+      user-select: none;
+    }
+    .case-card:hover {
+      border-color: var(--border-secondary);
+      background: var(--bg-secondary);
+    }
+    .case-card.active {
+      border: 2px solid var(--border-info);
+      background: var(--bg-info);
+    }
+    .case-icon { font-size: 18px; margin-bottom: 6px; }
+    .case-label { font-size: 13px; font-weight: 500; line-height: 1.3; }
+    .case-desc { font-size: 11px; color: var(--text-secondary); margin-top: 3px; line-height: 1.4; }
+
+    /* Detail panel */
+    .detail-panel {
+      border-top: 0.5px solid var(--border);
+      display: none;
+    }
+    .detail-panel.visible { display: block; }
+    .detail-header {
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .detail-header-title { font-size: 15px; font-weight: 500; }
+    .detail-header-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+    /* Steps */
+    .step {
+      display: flex;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-info);
+      color: var(--text-info);
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .tag.required {
+      background: var(--bg-danger);
+      border-color: var(--border-danger);
+      color: var(--text-danger);
+    }
+
+    /* CTA buttons */
+    .cta-section {
+      padding: 1rem 1.25rem;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 0.5px solid var(--border);
+    }
+    .cta-section.visible { display: flex; }
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s, background 0.15s;
+    }
+    .btn-online {
+      background: var(--bg-info);
+      color: var(--text-info);
+      border: 0.5px solid var(--border-info);
+    }
+    .btn-online:hover { opacity: 0.85; }
+    .btn-reserve {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border: 0.5px solid var(--border-secondary);
+    }
+    .btn-reserve:hover { background: var(--bg-secondary); }
+
+    /* Fee section */
+    .toggle-section {
+      padding: 0 1.25rem 1rem;
+    }
+    .toggle-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+      font-family: inherit;
+    }
+    .toggle-btn:hover { background: var(--bg-secondary); }
+    .toggle-arrow { transition: transform 0.2s; display: inline-block; font-style: normal; }
+    .toggle-arrow.open { transform: rotate(180deg); }
+    .fee-table {
+      margin: 8px 1.25rem 0;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: none;
+    }
+    .fee-table.visible { display: block; }
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .fee-row:last-child { border-bottom: none; }
+    .fee-label { font-size: 13px; }
+    .fee-amount { font-size: 13px; font-weight: 500; }
+
+    /* Quick links */
+    .quick-links-card .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      padding: 12px 1.25rem 6px;
+      letter-spacing: 0.06em;
+      display: block;
+    }
+    .quick-links { padding: 0 1.25rem 1.25rem; }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--border);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .quick-link:last-child { border-bottom: none; }
+    .quick-link:hover { opacity: 0.7; }
+    .quick-link-label { font-size: 13px; color: var(--text-info); }
+    .quick-link-arrow { font-size: 12px; color: var(--text-tertiary); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+    .footer a { color: var(--text-tertiary); }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Main card -->
+    <div class="card">
+
+      <!-- Header -->
+      <div class="header">
+        <svg width="32" height="22" viewBox="0 0 32 22" style="flex-shrink:0;">
+          <rect width="32" height="22" fill="white" rx="2" stroke="#ddd" stroke-width="0.5"/>
+          <circle cx="16" cy="11" r="6" fill="#BC002D"/>
+        </svg>
+        <div>
+          <div class="header-title">パスポート申請</div>
+          <div class="header-sub">在サンフランシスコ日本国総領事館</div>
+        </div>
+      </div>
+
+      <!-- Notice -->
+      <div class="notice">
+        <div class="notice-label">お知らせ（2025年3月24日〜）</div>
+        <div class="notice-text">新しい「2025年旅券」の発給開始。日本国内で作成のため、受け取りまで約1か月かかります。</div>
+      </div>
+
+      <!-- Case selector -->
+      <div class="section">
+        <div class="section-title">あてはまるケースを選んでください</div>
+        <div class="case-grid">
+          <div class="case-card" onclick="selectCase(this, 'new')">
+            <div class="case-icon">🆕</div>
+            <div class="case-label">新規発給</div>
+            <div class="case-desc">初めて申請・有効期限切れ</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'renew')">
+            <div class="case-icon">🔄</div>
+            <div class="case-label">切替発給</div>
+            <div class="case-desc">有効期限1年未満で更新</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'change')">
+            <div class="case-icon">✏️</div>
+            <div class="case-label">記載事項変更</div>
+            <div class="case-desc">氏名・本籍地の変更など</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'lost')">
+            <div class="case-icon">🔍</div>
+            <div class="case-label">紛失・盗難</div>
+            <div class="case-desc">パスポートを失くした方</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail: 新規発給 -->
+      <div class="detail-panel" id="detail-new">
+        <div class="detail-header">
+          <div class="detail-header-title">新規発給の手続き</div>
+          <div class="detail-header-sub">オンライン申請または窓口申請が選べます</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-desc">以下の書類を事前に用意してください。</div>
+            <div class="step-tags">
+              <span class="tag required">戸籍謄本（6か月以内）</span>
+              <span class="tag required">申請書</span>
+              <span class="tag required">写真1枚（45×35mm）</span>
+              <span class="tag required">本人確認書類</span>
+              <span class="tag">在留届（推奨）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">申請方法を選ぶ</div>
+            <div class="step-desc">オンラインで申請書を提出（推奨）するか、窓口で直接申請できます。どちらも受け取りは来館が必要です。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">受け取り予約を取る</div>
+            <div class="step-desc">申請から約1か月後、準備完了の連絡が届きます。予約を取って来館してください。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail: 切替発給 -->
+      <div class="detail-panel" id="detail-renew">
+        <div class="detail-header">
+          <div class="detail-header-title">切替発給の手続き</div>
+          <div class="detail-header-sub">有効期限が1年未満になったら更新できます</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-desc">氏名・本籍地などに変更がない場合は戸籍謄本は不要です。</div>
+            <div class="step-tags">
+              <span class="tag required">現在のパスポート</span>
+              <span class="tag required">申請書</span>
+              <span class="tag required">写真1枚（45×35mm）</span>
+              <span class="tag">戸籍謄本（変更ある場合のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">申請する（オンライン or 窓口）</div>
+            <div class="step-desc">ORRネットからオンライン申請が可能です。窓口申請の場合は予約が必要です。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">受け取り（約1か月後）</div>
+            <div class="step-desc">準備完了の連絡後、予約の上ご来館ください。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail: 記載事項変更 -->
+      <div class="detail-panel" id="detail-change">
+        <div class="detail-header">
+          <div class="detail-header-title">記載事項変更</div>
+          <div class="detail-header-sub">氏名・本籍地の変更、査証欄の余白がなくなった場合</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">現在のパスポート</span>
+              <span class="tag required">戸籍謄本（6か月以内）</span>
+              <span class="tag required">申請書</span>
+              <span class="tag required">写真1枚（45×35mm）</span>
+              <span class="tag required">変更を証明する書類</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">窓口で申請（要予約）</div>
+            <div class="step-desc">記載事項変更は窓口申請のみとなります。必ず事前予約をしてください。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail: 紛失・盗難 -->
+      <div class="detail-panel" id="detail-lost">
+        <div class="detail-header">
+          <div class="detail-header-title">紛失・盗難による新規発給</div>
+          <div class="detail-header-sub">まず警察への届出が必要です</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">警察に届け出る</div>
+            <div class="step-desc">まず地元の警察署に届け出て、Police Report を取得してください。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">Police Report</span>
+              <span class="tag required">戸籍謄本（6か月以内）</span>
+              <span class="tag required">申請書</span>
+              <span class="tag required">写真1枚（45×35mm）</span>
+              <span class="tag required">本人確認書類（運転免許証など）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">窓口で申請（要予約）</div>
+            <div class="step-desc">緊急の場合は緊急旅券の申請も可能です。窓口にご相談ください。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-section" id="cta-buttons">
+        <a class="btn btn-online" id="btn-online" href="https://www.ezairyu.mofa.go.jp/" target="_blank" rel="noopener">オンラインで申請する（ORRネット）</a>
+        <a class="btn btn-reserve" href="https://sfyoyaku.rsvsys.jp/" target="_blank" rel="noopener">窓口申請の予約をする</a>
+      </div>
+
+      <!-- Fee toggle -->
+      <div class="toggle-section" id="fee-section" style="display:none;">
+        <button class="toggle-btn" onclick="toggleFee()" aria-expanded="false" id="fee-toggle-btn">
+          <span>手数料を確認する</span>
+          <span class="toggle-arrow" id="fee-arrow" aria-hidden="true">▼</span>
+        </button>
+        <div class="fee-table" id="fee-table" role="region" aria-label="手数料一覧">
+          <div class="fee-row">
+            <span class="fee-label">10年旅券（18歳以上）</span>
+            <span class="fee-amount">$167</span>
+          </div>
+          <div class="fee-row">
+            <span class="fee-label">5年旅券（18歳以上）</span>
+            <span class="fee-amount">$107</span>
+          </div>
+          <div class="fee-row">
+            <span class="fee-label">5年旅券（12〜17歳）</span>
+            <span class="fee-amount">$107</span>
+          </div>
+          <div class="fee-row">
+            <span class="fee-label">5年旅券（12歳未満）</span>
+            <span class="fee-amount">$59</span>
+          </div>
+          <div class="fee-row">
+            <span class="fee-label">帰国のための渡航書</span>
+            <span class="fee-amount">$20</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main card -->
+
+    <!-- Quick links card -->
+    <div class="card quick-links-card">
+      <span class="section-label">関連する手続き</span>
+      <div class="quick-links">
         <a class="quick-link" href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m04_02.html" target="_blank" rel="noopener">
           <span class="quick-link-label">在留届（海外在住者の届出）</span>
           <span class="quick-link-arrow">→</span>
