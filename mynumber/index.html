@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>在留届 | 在サンフランシスコ日本国総領事館</title>
+  <title>マイナンバーカード | 在サンフランシスコ日本国総領事館</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,13 +21,11 @@
       --text-info: #185fa5;
       --text-warning: #854f0b;
       --text-danger: #a32d2d;
-      --text-success: #3b6d11;
       --border: rgba(0,0,0,0.12);
       --border-secondary: rgba(0,0,0,0.22);
       --border-info: #378add;
       --border-warning: #ef9f27;
       --border-danger: #e24b4a;
-      --border-success: #639922;
       --radius-md: 8px;
       --radius-lg: 12px;
     }
@@ -47,13 +45,11 @@
         --text-info: #85b7eb;
         --text-warning: #fac775;
         --text-danger: #f09595;
-        --text-success: #97c459;
         --border: rgba(255,255,255,0.12);
         --border-secondary: rgba(255,255,255,0.22);
         --border-info: #378add;
         --border-warning: #ef9f27;
         --border-danger: #e24b4a;
-        --border-success: #639922;
       }
     }
 
@@ -75,53 +71,74 @@
       margin-bottom: 12px;
     }
 
+    /* Header */
     .header {
       padding: 1rem 1.25rem;
       border-bottom: 0.5px solid var(--border);
-      display: flex; align-items: center; gap: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .header-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
     .header-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
 
+    /* Breadcrumb */
     .breadcrumb {
       padding: 8px 1.25rem;
       border-bottom: 0.5px solid var(--border);
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-tertiary);
     }
     .breadcrumb a { color: var(--text-info); text-decoration: none; }
     .breadcrumb a:hover { opacity: 0.7; }
 
     /* Intro */
-    .intro-box {
-      margin: 1rem 1.25rem;
-      background: var(--bg-success);
-      border-left: 3px solid var(--border-success);
+    .intro {
+      padding: 1rem 1.25rem;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    /* Notice */
+    .notice {
+      background: var(--bg-info);
+      border-left: 3px solid var(--border-info);
       padding: 10px 14px;
+      margin: 1rem 1.25rem;
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
-    .intro-box-label { font-size: 11px; font-weight: 500; color: var(--text-success); margin-bottom: 3px; }
-    .intro-box-text { font-size: 13px; line-height: 1.6; }
+    .notice-label { font-size: 11px; font-weight: 500; color: var(--text-info); margin-bottom: 3px; }
+    .notice-text { font-size: 13px; line-height: 1.5; }
 
-    /* Section label */
-    .section-label {
-      font-size: 11px; font-weight: 500;
-      color: var(--text-tertiary);
-      padding: 12px 1.25rem 6px;
-      letter-spacing: 0.06em; display: block;
+    /* Section */
+    .section { padding: 1.25rem 1.25rem 1rem; }
+    .section-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
     }
 
     /* Case grid */
     .case-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 8px; padding: 0 1.25rem 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
     .case-card {
       border: 0.5px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 12px; cursor: pointer;
+      padding: 12px;
+      cursor: pointer;
       transition: background 0.15s, border-color 0.15s;
-      background: var(--bg-primary); user-select: none;
+      background: var(--bg-primary);
+      user-select: none;
     }
     .case-card:hover { border-color: var(--border-secondary); background: var(--bg-secondary); }
     .case-card.active { border: 2px solid var(--border-info); background: var(--bg-info); }
@@ -142,7 +159,8 @@
 
     /* Steps */
     .step {
-      display: flex; gap: 12px;
+      display: flex;
+      gap: 12px;
       padding: 14px 16px;
       border-bottom: 0.5px solid var(--border);
     }
@@ -156,7 +174,7 @@
     }
     .step-body { flex: 1; }
     .step-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-    .step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
     .step-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .tag {
       font-size: 11px; padding: 3px 8px;
@@ -165,31 +183,22 @@
       color: var(--text-secondary);
     }
     .tag.required {
-      background: var(--bg-danger); border-color: var(--border-danger); color: var(--text-danger);
+      background: var(--bg-danger);
+      border-color: var(--border-danger);
+      color: var(--text-danger);
     }
     .tag.note {
-      background: var(--bg-warning); border-color: var(--border-warning); color: var(--text-warning);
-    }
-
-    /* Warning / info box inside steps */
-    .inline-box {
-      margin-top: 10px; padding: 10px 12px;
-      border-radius: var(--radius-md);
-      font-size: 12px; line-height: 1.6;
-    }
-    .inline-box.warning {
-      background: var(--bg-warning); color: var(--text-warning);
-      border: 0.5px solid var(--border-warning);
-    }
-    .inline-box.info {
-      background: var(--bg-info); color: var(--text-info);
-      border: 0.5px solid var(--border-info);
+      background: var(--bg-warning);
+      border-color: var(--border-warning);
+      color: var(--text-warning);
     }
 
     /* CTA */
     .cta-section {
-      padding: 1rem 1.25rem; display: none;
-      flex-direction: column; gap: 8px;
+      padding: 1rem 1.25rem;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
       border-top: 0.5px solid var(--border);
     }
     .cta-section.visible { display: flex; }
@@ -198,68 +207,66 @@
       padding: 12px; border-radius: var(--radius-md);
       font-size: 14px; font-weight: 500;
       text-decoration: none; cursor: pointer; border: none;
-      transition: opacity 0.15s, background 0.15s; font-family: inherit;
+      transition: opacity 0.15s, background 0.15s;
+      font-family: inherit;
     }
     .btn-online { background: var(--bg-info); color: var(--text-info); border: 0.5px solid var(--border-info); }
     .btn-online:hover { opacity: 0.85; }
     .btn-reserve { background: var(--bg-primary); color: var(--text-primary); border: 0.5px solid var(--border-secondary); }
     .btn-reserve:hover { background: var(--bg-secondary); }
 
-    /* Info rows */
-    .info-rows { padding: 0 1.25rem 1.25rem; }
-    .info-row {
-      display: flex; gap: 10px;
-      padding: 10px 0;
-      border-bottom: 0.5px solid var(--border);
-      font-size: 13px; line-height: 1.5;
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-row-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .info-row-body { flex: 1; }
-    .info-row-title { font-weight: 500; margin-bottom: 2px; }
-    .info-row-desc { color: var(--text-secondary); font-size: 12px; }
-
-    /* Address block */
-    .address-block {
-      margin: 0 1.25rem 1.25rem;
-      background: var(--bg-secondary);
-      border-radius: var(--radius-md);
-      padding: 12px 14px;
-      font-size: 13px; line-height: 1.7;
-      color: var(--text-secondary);
-    }
-    .address-block strong { color: var(--text-primary); font-weight: 500; display: block; margin-bottom: 4px; }
-
-    /* SMS section */
-    .sms-box {
-      margin: 0 1.25rem 1.25rem;
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-md); overflow: hidden;
-    }
-    .sms-row {
-      display: flex; justify-content: space-between; align-items: center;
+    /* Warning box */
+    .warning-box {
+      background: var(--bg-warning);
+      border-left: 3px solid var(--border-warning);
       padding: 10px 14px;
-      border-bottom: 0.5px solid var(--border);
+      margin: 0 16px 14px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
       font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-primary);
     }
-    .sms-row:last-child { border-bottom: none; }
-    .sms-label { color: var(--text-secondary); }
-    .sms-value { font-weight: 500; font-family: monospace; }
 
     /* Quick links */
+    .quick-links-card .section-label {
+      font-size: 11px; font-weight: 500;
+      color: var(--text-tertiary);
+      padding: 12px 1.25rem 6px;
+      letter-spacing: 0.06em; display: block;
+    }
     .quick-links { padding: 0 1.25rem 1.25rem; }
     .quick-link {
       display: flex; align-items: center;
       justify-content: space-between;
       padding: 10px 0;
       border-bottom: 0.5px solid var(--border);
-      text-decoration: none; transition: opacity 0.15s;
+      text-decoration: none;
+      transition: opacity 0.15s;
     }
     .quick-link:last-child { border-bottom: none; }
     .quick-link:hover { opacity: 0.7; }
     .quick-link-label { font-size: 13px; color: var(--text-info); }
     .quick-link-arrow { font-size: 12px; color: var(--text-tertiary); }
 
+    /* Emergency contact */
+    .contact-card {
+      margin: 0 1.25rem 1.25rem;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .contact-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 0.5px solid var(--border);
+      font-size: 13px;
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-label { color: var(--text-secondary); }
+    .contact-value { font-weight: 500; color: var(--text-info); }
+
+    /* Footer */
     .footer {
       text-align: center; padding: 1rem;
       font-size: 11px; color: var(--text-tertiary); line-height: 1.6;
@@ -268,299 +275,323 @@
   </style>
 </head>
 <body>
-<div class="page-wrapper">
+  <div class="page-wrapper">
 
-  <!-- Main card -->
-  <div class="card">
-    <div class="header">
-      <svg width="32" height="22" viewBox="0 0 32 22" style="flex-shrink:0;">
-        <rect width="32" height="22" fill="white" rx="2" stroke="#ddd" stroke-width="0.5"/>
-        <circle cx="16" cy="11" r="6" fill="#BC002D"/>
-      </svg>
-      <div>
-        <div class="header-title">在留届</div>
-        <div class="header-sub">在サンフランシスコ日本国総領事館</div>
-      </div>
-    </div>
+    <div class="card">
 
-    <div class="breadcrumb">
-      <a href="../passport/">パスポート申請</a>
-      <span>›</span>
-      <span>在留届</span>
-    </div>
-
-    <!-- Intro -->
-    <div class="intro-box">
-      <div class="intro-box-label">提出義務について</div>
-      <div class="intro-box-text">外国に<strong>3か月以上滞在</strong>される方は、旅券法第16条により在留届の提出が義務付けられています。オンラインで手続き可能です。</div>
-    </div>
-
-    <!-- Case selector -->
-    <span class="section-label">あてはまるケースを選んでください</span>
-    <div class="case-grid">
-      <div class="case-card" onclick="selectCase(this, 'new')">
-        <div class="case-icon">📝</div>
-        <div class="case-label">新規届出</div>
-        <div class="case-desc">初めて届け出る方</div>
-      </div>
-      <div class="case-card" onclick="selectCase(this, 'change')">
-        <div class="case-icon">🔄</div>
-        <div class="case-label">内容変更</div>
-        <div class="case-desc">住所・家族構成の変更など</div>
-      </div>
-      <div class="case-card" onclick="selectCase(this, 'paper')">
-        <div class="case-icon">📄</div>
-        <div class="case-label">書面→オンライン切替</div>
-        <div class="case-desc">既に書面で届出済みの方</div>
-      </div>
-      <div class="case-card" onclick="selectCase(this, 'jrp')">
-        <div class="case-icon">🚅</div>
-        <div class="case-label">在留届の写し取得</div>
-        <div class="case-desc">ジャパンレールパス用など</div>
-      </div>
-    </div>
-
-    <!-- Detail: 新規届出 -->
-    <div class="detail-panel" id="detail-new">
-      <div class="detail-header">
-        <div class="detail-header-title">新規届出</div>
-        <div class="detail-header-sub">オンラインで完結します</div>
-      </div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">ORRネットにアクセスする</div>
-          <div class="step-desc">「在留届電子届出システム（ORRネット）」から新規登録・届出ができます。パスポートのオンライン申請にも同じシステムを使います。</div>
+      <!-- Header -->
+      <div class="header">
+        <svg width="32" height="22" viewBox="0 0 32 22" style="flex-shrink:0;">
+          <rect width="32" height="22" fill="white" rx="2" stroke="#ddd" stroke-width="0.5"/>
+          <circle cx="16" cy="11" r="6" fill="#BC002D"/>
+        </svg>
+        <div>
+          <div class="header-title">マイナンバーカード</div>
+          <div class="header-sub">在サンフランシスコ日本国総領事館</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">必要事項を入力する</div>
-          <div class="step-desc">氏名・住所・連絡先・滞在予定期間などを入力します。同居家族がいる場合は合わせて登録できます。</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <div class="step-title">登録完了</div>
-          <div class="step-desc">登録後は緊急時のSMSや安否確認などの領事サービスが受けられます。また、パスポート申請などをオンラインで行えるようになります。</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Detail: 内容変更 -->
-    <div class="detail-panel" id="detail-change">
-      <div class="detail-header">
-        <div class="detail-header-title">内容変更</div>
-        <div class="detail-header-sub">住所移転・家族構成の変更・帰国など</div>
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../passport/">パスポート申請</a>
+        <span>›</span>
+        <span>マイナンバーカード</span>
       </div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">ORRネットにログインする</div>
-          <div class="step-desc">登録済みのアカウントでログインし、届出内容を変更・更新してください。</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">変更内容を入力する</div>
-          <div class="step-desc">住所・電話番号・家族構成など変更のあった項目を更新します。帰国の場合は「帰国届」として手続きを行います。</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Detail: 書面→オンライン切替 -->
-    <div class="detail-panel" id="detail-paper">
-      <div class="detail-header">
-        <div class="detail-header-title">書面届出からオンラインへの切替</div>
-        <div class="detail-header-sub">切替後はパスポート申請などをオンラインで行えるようになります</div>
+      <!-- Intro -->
+      <div class="intro">
+        2024年5月27日から、国外在住者も在外公館窓口でマイナンバーカードを申請できるようになりました。対象は2015年10月5日以降に国外転出届を出し、現在も国外にお住まいの方です。
       </div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">ORRネットで新規登録する</div>
-          <div class="step-desc">まず在留届電子届出システムから新規に登録を行ってください。</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">領事班にメールを送る</div>
-          <div class="step-desc">登録完了後、下記の内容を明記の上、領事班までメールを送ってください。</div>
-          <div class="inline-box info">
-            <strong style="display:block;margin-bottom:4px;">メール送付先：zairyu@sr.mofa.go.jp</strong>
-            件名：「オンライン在留届への切替え」<br>
-            本文：① 在留届の筆頭者氏名（漢字・ローマ字）と生年月日（西暦）<br>
-            　　　② 日中連絡が取れる電話番号とメールアドレス
+
+      <!-- Case selector -->
+      <div class="section">
+        <div class="section-title">あてはまるケースを選んでください</div>
+        <div class="case-grid">
+          <div class="case-card" onclick="selectCase(this, 'new')">
+            <div class="case-icon">🆕</div>
+            <div class="case-label">新規交付</div>
+            <div class="case-desc">初めて取得・失効した方</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'renew')">
+            <div class="case-icon">🔄</div>
+            <div class="case-label">更新</div>
+            <div class="case-desc">有効期限1年未満の方</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'lost')">
+            <div class="case-icon">🔍</div>
+            <div class="case-label">再交付</div>
+            <div class="case-desc">紛失・盗難・破損</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'cert')">
+            <div class="case-icon">📋</div>
+            <div class="case-label">電子証明書</div>
+            <div class="case-desc">新規発行・更新</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'change')">
+            <div class="case-icon">✏️</div>
+            <div class="case-label">券面変更</div>
+            <div class="case-desc">氏名・住所等の変更</div>
+          </div>
+          <div class="case-card" onclick="selectCase(this, 'pin')">
+            <div class="case-icon">🔐</div>
+            <div class="case-label">暗証番号初期化</div>
+            <div class="case-desc">忘れた・ロックされた</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Detail: 在留届の写し（JRP） -->
-    <div class="detail-panel" id="detail-jrp">
-      <div class="detail-header">
-        <div class="detail-header-title">在留届の写し取得</div>
-        <div class="detail-header-sub">ジャパンレールパス購入用など</div>
-      </div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">発行条件を確認する</div>
-          <div class="step-desc">以下の両方を満たす方が対象です。</div>
-          <div class="inline-box warning">
-            ① 在留届の受付日付が10年以上前（同居家族は到着日が10年以上前）<br>
-            ② 現在も継続して当館管轄内にお住まいの方
+      <!-- Detail: 新規交付 -->
+      <div class="detail-panel" id="detail-new">
+        <div class="detail-header">
+          <div class="detail-header-title">新規交付</div>
+          <div class="detail-header-sub">窓口申請・郵送申請どちらも可能</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">申請対象の確認</div>
+            <div class="step-desc">2015年10月5日以降に国外転出届を提出し、マイナンバーカードをお持ちでない方、または国外転出時に国外利用手続きを行わずカードが失効した方が対象です。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">個人番号カード交付申請書</span>
+              <span class="tag required">暗証番号設定依頼書</span>
+              <span class="tag required">顔写真（45×35mm）</span>
+              <span class="tag required">有効な日本旅券</span>
+              <span class="tag">法定代理人の旅券（該当者のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">申請する</div>
+            <div class="step-desc">窓口申請（要予約）または郵送申請が選べます。郵送の場合は旅券の顔写真ページのコピーを同封してください。</div>
           </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">申請方法を選ぶ</div>
-          <div class="step-desc">窓口申請（その場で交付）または郵送申請（受領まで5開館日以上）が選べます。お急ぎの場合は窓口申請を推奨します。</div>
+
+      <!-- Detail: 更新 -->
+      <div class="detail-panel" id="detail-renew">
+        <div class="detail-header">
+          <div class="detail-header-title">更新</div>
+          <div class="detail-header-sub">窓口申請・郵送申請どちらも可能</div>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3a</div>
-        <div class="step-body">
-          <div class="step-title">窓口申請の必要書類</div>
-          <div class="step-tags">
-            <span class="tag required">在留届の写し交付申請書</span>
-            <span class="tag required">有効な日本旅券（原本）</span>
-            <span class="tag required">米国滞在資格（原本）</span>
-            <span class="tag note">家族併記：各自の旅券・滞在資格・同意書</span>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">個人番号カード交付申請書</span>
+              <span class="tag required">暗証番号設定依頼書</span>
+              <span class="tag required">顔写真（45×35mm）</span>
+              <span class="tag required">有効な日本旅券</span>
+              <span class="tag required">現在のマイナンバーカード（窓口のみ提示）</span>
+              <span class="tag">法定代理人の旅券（該当者のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">申請する</div>
+            <div class="step-desc">窓口申請（要予約）または郵送申請が選べます。現在のカードは申請時は提示のみですが、新カード交付時に返納が必要です。郵送の場合はカード不要。</div>
           </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">3b</div>
-        <div class="step-body">
-          <div class="step-title">郵送申請の必要書類</div>
-          <div class="step-tags">
-            <span class="tag required">在留届の写し交付申請書</span>
-            <span class="tag required">日本旅券のコピー</span>
-            <span class="tag required">米国滞在資格のコピー</span>
-            <span class="tag required">現住所確認書類のコピー</span>
-            <span class="tag required">返信用封筒（Forever Stamp貼付）</span>
-            <span class="tag note">家族併記：各自の書類＋同意書</span>
+
+      <!-- Detail: 再交付 -->
+      <div class="detail-panel" id="detail-lost">
+        <div class="detail-header">
+          <div class="detail-header-title">再交付</div>
+          <div class="detail-header-sub">紛失・盗難の場合は郵送可。破損・汚損は窓口のみ</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">紛失・盗難の場合：警察に届け出る</div>
+            <div class="step-desc">Police Report を取得してください。外国語の書類には日本語訳を添付が必要です。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">個人番号カード再交付申請書</span>
+              <span class="tag required">暗証番号設定依頼書</span>
+              <span class="tag required">顔写真（45×35mm）</span>
+              <span class="tag required">有効な日本旅券</span>
+              <span class="tag required">Police Report（紛失・盗難の場合）</span>
+              <span class="tag required">破損カード（破損・汚損の場合）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">申請する</div>
+            <div class="step-desc">紛失・盗難は郵送申請可。ただしカードの返納が発生する場合は窓口のみ。破損・汚損は窓口のみ（要予約）。</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- CTA Buttons -->
-    <div class="cta-section" id="cta-buttons">
-      <a class="btn btn-online" id="btn-online" href="https://www.ezairyu.mofa.go.jp/RRnet/index.html" target="_blank" rel="noopener">在留届電子届出システム（ORRネット）</a>
-      <a class="btn btn-reserve" id="btn-reserve" href="https://sfyoyaku.rsvsys.jp/" target="_blank" rel="noopener" style="display:none;">窓口申請の予約をする</a>
-    </div>
+      <!-- Detail: 電子証明書 -->
+      <div class="detail-panel" id="detail-cert">
+        <div class="detail-header">
+          <div class="detail-header-title">電子証明書 新規・更新</div>
+          <div class="detail-header-sub">窓口申請・郵送申請どちらも可能</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">個人番号カード交付申請書</span>
+              <span class="tag required">暗証番号設定依頼書</span>
+              <span class="tag required">顔写真（45×35mm）</span>
+              <span class="tag required">有効な日本旅券</span>
+              <span class="tag required">現在有効なマイナンバーカード（窓口のみ提示）</span>
+              <span class="tag">法定代理人の旅券（該当者のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">申請する</div>
+            <div class="step-desc">窓口申請（要予約）または郵送申請が選べます。カードは申請時は提示のみ。新カード交付時に返納が必要です（郵送の場合は不要）。</div>
+          </div>
+        </div>
+      </div>
 
-  </div><!-- /main card -->
+      <!-- Detail: 券面変更 -->
+      <div class="detail-panel" id="detail-change">
+        <div class="detail-header">
+          <div class="detail-header-title">券面記載事項変更</div>
+          <div class="detail-header-sub">婚姻等による氏名・住所変更など</div>
+        </div>
+        <div class="warning-box" style="margin-top:14px;">
+          戸籍の届出がお済みでない場合は、事前または同時に戸籍の届出も必要です。
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">個人番号カード交付申請書</span>
+              <span class="tag required">暗証番号設定依頼書</span>
+              <span class="tag required">顔写真（45×35mm）</span>
+              <span class="tag required">有効な日本旅券</span>
+              <span class="tag required">変更が必要なマイナンバーカード（窓口のみ提示）</span>
+              <span class="tag">法定代理人の旅券（該当者のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">申請する</div>
+            <div class="step-desc">窓口申請（要予約）または郵送申請が選べます。カードは申請時は提示のみ。新カード交付時に返納が必要です（郵送の場合は不要）。</div>
+          </div>
+        </div>
+      </div>
 
-  <!-- 郵送先住所 -->
-  <div class="card" id="postal-card" style="display:none;">
-    <span class="section-label">郵送申請の送付先</span>
-    <div class="address-block">
-      <strong>Consular Section（在留届係）</strong>
-      Consulate-General of Japan in San Francisco<br>
-      275 Battery St., Suite 2100<br>
-      San Francisco, CA 94111
-    </div>
-  </div>
+      <!-- Detail: 暗証番号 -->
+      <div class="detail-panel" id="detail-pin">
+        <div class="detail-header">
+          <div class="detail-header-title">暗証番号の初期化・再設定</div>
+          <div class="detail-header-sub">窓口のみ（郵送申請不可）</div>
+        </div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">必要書類を準備する</div>
+            <div class="step-tags">
+              <span class="tag required">暗証番号変更・再設定申請書</span>
+              <span class="tag required">現在有効なマイナンバーカード</span>
+              <span class="tag">法定代理人の旅券（該当者のみ）</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">窓口で申請（要予約）</div>
+            <div class="step-desc">この手続きは郵送申請ができません。必ず事前予約の上、窓口にお越しください。</div>
+          </div>
+        </div>
+      </div>
 
-  <!-- SMS設定 -->
-  <div class="card">
-    <span class="section-label">SMS緊急情報の設定</span>
-    <div class="info-rows">
-      <div class="info-row">
-        <div class="info-row-icon">📱</div>
-        <div class="info-row-body">
-          <div class="info-row-title">SMS配信について</div>
-          <div class="info-row-desc">登録した米国の携帯番号には、事件・事故・災害時の緊急情報がSMSで届きます。</div>
+      <!-- CTA Buttons -->
+      <div class="cta-section" id="cta-buttons">
+        <a class="btn btn-reserve" href="https://sfyoyaku.rsvsys.jp/" target="_blank" rel="noopener">窓口申請の予約をする</a>
+      </div>
+
+    </div><!-- /main card -->
+
+    <!-- Emergency contact -->
+    <div class="card">
+      <span class="section-label" style="font-size:11px;font-weight:500;color:var(--text-tertiary);padding:12px 1.25rem 8px;letter-spacing:0.06em;display:block;">紛失・盗難の緊急連絡先</span>
+      <div class="contact-card" style="margin:0 1.25rem 1.25rem;">
+        <div class="contact-row">
+          <span class="contact-label">カード一時停止専用ダイヤル</span>
+          <span class="contact-value">+81-3-6734-0170</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">受付時間</span>
+          <span style="font-size:13px;">24時間・365日（有料）</span>
         </div>
       </div>
     </div>
-    <div class="sms-box">
-      <div class="sms-row">
-        <span class="sms-label">SMS停止方法</span>
-        <span class="sms-value">54120 に「STOP」を送信</span>
-      </div>
-      <div class="sms-row">
-        <span class="sms-label">SMS再開・説明</span>
-        <span class="sms-value">54120 に「HELP」を送信</span>
-      </div>
-      <div class="sms-row">
-        <span class="sms-label">問い合わせメール</span>
-        <span class="sms-value" style="font-family:inherit;">mofasms@mofa.go.jp</span>
+
+    <!-- Quick links -->
+    <div class="card quick-links-card">
+      <span class="section-label">関連する手続き</span>
+      <div class="quick-links">
+        <a class="quick-link" href="../passport/" >
+          <span class="quick-link-label">パスポート申請</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="../zairyu/">
+          <span class="quick-link-label">在留届（海外在住者の届出）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="https://www.kojinbango-card.go.jp/apprec/abroad/" target="_blank" rel="noopener">
+          <span class="quick-link-label">マイナンバー総合サイト（外部）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
+        <a class="quick-link" href="https://www.kojinbango-card.go.jp/faq/" target="_blank" rel="noopener">
+          <span class="quick-link-label">よくある質問（外部）</span>
+          <span class="quick-link-arrow">→</span>
+        </a>
       </div>
     </div>
-  </div>
 
-  <!-- Quick links -->
-  <div class="card">
-    <span class="section-label">関連する手続き</span>
-    <div class="quick-links">
-      <a class="quick-link" href="../passport/">
-        <span class="quick-link-label">パスポート申請</span>
-        <span class="quick-link-arrow">→</span>
+    <div class="footer">
+      このページは個人によるリデザインのプロトタイプです。<br>
+      公式情報は
+      <a href="https://www.sf.us.emb-japan.go.jp/itpr_ja/mynumbercard.html" target="_blank" rel="noopener">
+        在サンフランシスコ総領事館の公式サイト
       </a>
-      <a class="quick-link" href="../mynumber/">
-        <span class="quick-link-label">マイナンバーカード</span>
-        <span class="quick-link-arrow">→</span>
-      </a>
-      <a class="quick-link" href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m03_03_04.html" target="_blank" rel="noopener">
-        <span class="quick-link-label">在留証明（公式サイト）</span>
-        <span class="quick-link-arrow">→</span>
-      </a>
-      <a class="quick-link" href="https://japanrailpass.net/about_jrp/" target="_blank" rel="noopener">
-        <span class="quick-link-label">ジャパンレールパスについて（外部）</span>
-        <span class="quick-link-arrow">→</span>
-      </a>
+      をご確認ください。
     </div>
+
   </div>
 
-  <div class="footer">
-    このページは個人によるリデザインのプロトタイプです。<br>
-    公式情報は
-    <a href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m04_02.html" target="_blank" rel="noopener">
-      在サンフランシスコ総領事館の公式サイト
-    </a>
-    をご確認ください。
-  </div>
-
-</div>
-
-<script>
-  function selectCase(cardEl, type) {
-    document.querySelectorAll('.case-card').forEach(c => c.classList.remove('active'));
-    cardEl.classList.add('active');
-    document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('visible'));
-    const panel = document.getElementById('detail-' + type);
-    if (panel) panel.classList.add('visible');
-
-    const cta = document.getElementById('cta-buttons');
-    cta.classList.add('visible');
-
-    const btnOnline = document.getElementById('btn-online');
-    const btnReserve = document.getElementById('btn-reserve');
-    const postalCard = document.getElementById('postal-card');
-
-    if (type === 'jrp') {
-      btnOnline.style.display = 'none';
-      btnReserve.style.display = 'block';
-      postalCard.style.display = 'block';
-    } else if (type === 'paper') {
-      btnOnline.style.display = 'block';
-      btnReserve.style.display = 'none';
-      postalCard.style.display = 'none';
-    } else {
-      btnOnline.style.display = 'block';
-      btnReserve.style.display = 'none';
-      postalCard.style.display = 'none';
+  <script>
+    function selectCase(cardEl, type) {
+      document.querySelectorAll('.case-card').forEach(c => c.classList.remove('active'));
+      cardEl.classList.add('active');
+      document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('visible'));
+      const panel = document.getElementById('detail-' + type);
+      if (panel) panel.classList.add('visible');
+      document.getElementById('cta-buttons').classList.add('visible');
     }
-  }
-</script>
+  </script>
 </body>
 </html>
