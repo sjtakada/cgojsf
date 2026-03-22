@@ -550,4 +550,17 @@
     if (type === 'jrp') {
       btnOnline.style.display = 'none';
       btnReserve.style.display = 'block';
-      postalCard.sty
+      postalCard.style.display = 'block';
+    } else if (type === 'paper') {
+      btnOnline.style.display = 'block';
+      btnReserve.style.display = 'none';
+      postalCard.style.display = 'none';
+    } else {
+      btnOnline.style.display = 'block';
+      btnReserve.style.display = 'none';
+      postalCard.style.display = 'none';
+    }
+  }
+</script>
+</body>
+</html>
