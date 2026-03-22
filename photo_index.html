@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>申請用写真について | 在サンフランシスコ日本国総領事館</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary: #ffffff; --bg-secondary: #f5f5f3; --bg-tertiary: #efefec;
+      --bg-info: #e6f1fb; --bg-warning: #faeeda; --bg-danger: #fcebeb;
+      --text-primary: #1a1a18; --text-secondary: #5f5e5a; --text-tertiary: #888780;
+      --text-info: #185fa5; --text-warning: #854f0b; --text-danger: #a32d2d;
+      --border: rgba(0,0,0,0.12); --border-secondary: rgba(0,0,0,0.22);
+      --border-info: #378add; --border-warning: #ef9f27; --border-danger: #e24b4a;
+      --radius-md: 8px; --radius-lg: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #1e1e1c; --bg-secondary: #2a2a27; --bg-tertiary: #333330;
+        --bg-info: #042c53; --bg-warning: #412402; --bg-danger: #501313;
+        --text-primary: #f0efea; --text-secondary: #b4b2a9; --text-tertiary: #888780;
+        --text-info: #85b7eb; --text-warning: #fac775; --text-danger: #f09595;
+        --border: rgba(255,255,255,0.12); --border-secondary: rgba(255,255,255,0.22);
+        --border-info: #378add; --border-warning: #ef9f27; --border-danger: #e24b4a;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; padding: 1.5rem 1rem;
+    }
+    .page-wrapper { max-width: 480px; margin: 0 auto; }
+    .card { background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 12px; }
+    .header { padding: 1rem 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .header-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
+    .header-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+    .breadcrumb { padding: 8px 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-tertiary); }
+    .breadcrumb a { color: var(--text-info); text-decoration: none; }
+    .breadcrumb a:hover { opacity: 0.7; }
+    .section-label { font-size: 11px; font-weight: 500; color: var(--text-tertiary); padding: 12px 1.25rem 6px; letter-spacing: 0.06em; display: block; }
+
+    /* Photo spec diagram */
+    .photo-diagram { margin: 1rem 1.25rem; display: flex; gap: 16px; align-items: flex-start; }
+    .photo-frame {
+      flex-shrink: 0; width: 88px; height: 113px;
+      border: 2px solid var(--border-secondary); border-radius: 4px;
+      background: var(--bg-secondary); position: relative; overflow: hidden;
+    }
+    .photo-frame-inner {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 60px; height: 80px;
+    }
+    .face-oval {
+      width: 36px; height: 44px; border-radius: 50%;
+      background: var(--border); margin: 0 auto 4px;
+    }
+    .face-body { width: 50px; height: 30px; border-radius: 50% 50% 0 0; background: var(--border); margin: 0 auto; }
+    .photo-label { position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font-size: 9px; color: var(--text-tertiary); }
+    .photo-spec { flex: 1; }
+    .spec-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label { color: var(--text-secondary); }
+    .spec-value { font-weight: 500; }
+
+    /* Checklist */
+    .checklist { padding: 0 1.25rem 1.25rem; }
+    .check-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; line-height: 1.5; }
+    .check-item:last-child { border-bottom: none; }
+    .check-ok { color: #3b6d11; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .check-ng { color: #a32d2d; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .check-text { flex: 1; }
+    .check-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+    /* Notice */
+    .notice { background: var(--bg-warning); border-left: 3px solid var(--border-warning); padding: 10px 14px; margin: 0 1.25rem 1.25rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .notice-label { font-size: 11px; font-weight: 500; color: var(--text-warning); margin-bottom: 3px; }
+    .notice-text { font-size: 13px; line-height: 1.5; }
+
+    /* Info rows */
+    .info-rows { padding: 0 1.25rem 1.25rem; }
+    .info-row { display: flex; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; line-height: 1.5; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .info-row-body { flex: 1; }
+    .info-row-title { font-weight: 500; margin-bottom: 2px; }
+    .info-row-desc { color: var(--text-secondary); font-size: 12px; }
+
+    /* Quick links */
+    .quick-links { padding: 0 1.25rem 1.25rem; }
+    .quick-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid var(--border); text-decoration: none; transition: opacity 0.15s; }
+    .quick-link:last-child { border-bottom: none; }
+    .quick-link:hover { opacity: 0.7; }
+    .quick-link-label { font-size: 13px; color: var(--text-info); }
+    .quick-link-arrow { font-size: 12px; color: var(--text-tertiary); }
+    .footer { text-align: center; padding: 1rem; font-size: 11px; color: var(--text-tertiary); line-height: 1.6; }
+    .footer a { color: var(--text-tertiary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="card">
+    <div class="header">
+      <svg width="32" height="22" viewBox="0 0 32 22" style="flex-shrink:0;">
+        <rect width="32" height="22" fill="white" rx="2" stroke="#ddd" stroke-width="0.5"/>
+        <circle cx="16" cy="11" r="6" fill="#BC002D"/>
+      </svg>
+      <div>
+        <div class="header-title">申請用写真について</div>
+        <div class="header-sub">在サンフランシスコ日本国総領事館</div>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <a href="../passport/">パスポート申請</a>
+      <span>›</span>
+      <span>申請用写真</span>
+    </div>
+
+    <!-- Photo diagram -->
+    <span class="section-label">写真の規格</span>
+    <div class="photo-diagram">
+      <div>
+        <div class="photo-frame">
+          <div class="photo-frame-inner">
+            <div class="face-oval"></div>
+            <div class="face-body"></div>
+          </div>
+          <div class="photo-label">顔中心・正面</div>
+        </div>
+        <div style="text-align:center; font-size:10px; color:var(--text-tertiary); margin-top:4px;">イメージ</div>
+      </div>
+      <div class="photo-spec">
+        <div class="spec-row">
+          <span class="spec-label">サイズ</span>
+          <span class="spec-value">縦45mm × 横35mm</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">米国規格でも可</span>
+          <span class="spec-value">2インチ × 2インチ</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">カラー / 白黒</span>
+          <span class="spec-value">どちらも可</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">枚数</span>
+          <span class="spec-value">1枚（紛失の場合2枚）</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">申請書への貼付</span>
+          <span class="spec-value">不要（持参するのみ）</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">写真の裏</span>
+          <span class="spec-value">氏名を記入する</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OK / NG checklist -->
+  <div class="card">
+    <span class="section-label">写真の注意事項</span>
+    <div class="checklist">
+      <div class="check-item">
+        <span class="check-ok">✓</span>
+        <div class="check-text">
+          正面から撮影されていること
+          <div class="check-sub">サングラス・スカーフ・帽子は不可</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-ok">✓</span>
+        <div class="check-text">
+          目がはっきり確認できること
+          <div class="check-sub">眼鏡の反射や前髪で隠れていないこと</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-ok">✓</span>
+        <div class="check-text">
+          背景が白またはごく薄い色であること
+          <div class="check-sub">顔以外のものが写り込んでいないこと</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-ok">✓</span>
+        <div class="check-text">
+          影がなく明るさが適切であること
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-ok">✓</span>
+        <div class="check-text">
+          画質が良く鮮明であること
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-ng">✗</span>
+        <div class="check-text">
+          顔が枠いっぱいの写真は使用不可
+          <div class="check-sub">米国規格（2×2インチ）の場合は特に注意</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 乳児の場合 -->
+  <div class="card">
+    <span class="section-label">乳児の写真について</span>
+    <div class="info-rows">
+      <div class="info-row">
+        <div class="info-row-icon">👶</div>
+        <div class="info-row-body">
+          <div class="info-row-title">撮影方法</div>
+          <div class="info-row-desc">白色等の無地の布に寝かせて上から撮影してください。目を閉じていたり、正面を向いていない写真は使用できません。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 撮影場所 -->
+  <div class="card">
+    <span class="section-label">近くの撮影場所</span>
+    <div class="notice">
+      <div class="notice-label">総領事館では撮影できません</div>
+      <div class="notice-text">当館から5ブロック先の写真店で撮影できます。写真のカット・貼付は窓口で行いますので、切らずにお持ちください。</div>
+    </div>
+    <div class="info-rows">
+      <div class="info-row">
+        <div class="info-row-icon">📍</div>
+        <div class="info-row-body">
+          <div class="info-row-title">LEETON PHOTO CENTER</div>
+          <div class="info-row-desc">480 Davis Court, San Francisco, CA 94111</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick links -->
+  <div class="card">
+    <span class="section-label">関連する手続き</span>
+    <div class="quick-links">
+      <a class="quick-link" href="../passport/">
+        <span class="quick-link-label">パスポート申請トップ</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+      <a class="quick-link" href="../faq/">
+        <span class="quick-link-label">よくある質問</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+      <a class="quick-link" href="https://www.mofa.go.jp/mofaj/toko/passport/ic_photo.html" target="_blank" rel="noopener">
+        <span class="quick-link-label">写真規格の詳細（外務省・外部）</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    このページは個人によるリデザインのプロトタイプです。<br>
+    公式情報は <a href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m03_01_14.html" target="_blank" rel="noopener">在サンフランシスコ総領事館の公式サイト</a> をご確認ください。
+  </div>
+</div>
+</body>
+</html>
