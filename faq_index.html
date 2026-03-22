@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>よくある質問（パスポート）| 在サンフランシスコ日本国総領事館</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary: #ffffff; --bg-secondary: #f5f5f3; --bg-tertiary: #efefec;
+      --bg-info: #e6f1fb; --bg-warning: #faeeda; --bg-danger: #fcebeb;
+      --text-primary: #1a1a18; --text-secondary: #5f5e5a; --text-tertiary: #888780;
+      --text-info: #185fa5; --text-warning: #854f0b; --text-danger: #a32d2d;
+      --border: rgba(0,0,0,0.12); --border-secondary: rgba(0,0,0,0.22);
+      --border-info: #378add; --border-warning: #ef9f27;
+      --radius-md: 8px; --radius-lg: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #1e1e1c; --bg-secondary: #2a2a27; --bg-tertiary: #333330;
+        --bg-info: #042c53; --bg-warning: #412402; --bg-danger: #501313;
+        --text-primary: #f0efea; --text-secondary: #b4b2a9; --text-tertiary: #888780;
+        --text-info: #85b7eb; --text-warning: #fac775; --text-danger: #f09595;
+        --border: rgba(255,255,255,0.12); --border-secondary: rgba(255,255,255,0.22);
+        --border-info: #378add; --border-warning: #ef9f27;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; padding: 1.5rem 1rem;
+    }
+    .page-wrapper { max-width: 480px; margin: 0 auto; }
+    .card { background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 12px; }
+    .header { padding: 1rem 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .header-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
+    .header-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+    .breadcrumb { padding: 8px 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-tertiary); }
+    .breadcrumb a { color: var(--text-info); text-decoration: none; }
+    .breadcrumb a:hover { opacity: 0.7; }
+    .section-label { font-size: 11px; font-weight: 500; color: var(--text-tertiary); padding: 12px 1.25rem 6px; letter-spacing: 0.06em; display: block; }
+
+    /* Filter tabs */
+    .filter-tabs { display: flex; gap: 6px; padding: 0 1.25rem 1rem; flex-wrap: wrap; }
+    .filter-tab { font-size: 12px; padding: 5px 12px; border-radius: 99px; border: 0.5px solid var(--border); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.15s; user-select: none; }
+    .filter-tab:hover { border-color: var(--border-secondary); }
+    .filter-tab.active { background: var(--bg-info); border-color: var(--border-info); color: var(--text-info); }
+
+    /* FAQ items */
+    .faq-list { padding: 0 1.25rem 1.25rem; }
+    .faq-item { border-bottom: 0.5px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { display: flex; gap: 10px; padding: 12px 0; cursor: pointer; user-select: none; align-items: flex-start; }
+    .faq-q:hover .faq-q-text { color: var(--text-info); }
+    .faq-q-badge { background: var(--bg-info); color: var(--text-info); font-size: 11px; font-weight: 500; padding: 2px 7px; border-radius: var(--radius-md); flex-shrink: 0; margin-top: 2px; }
+    .faq-q-text { font-size: 14px; font-weight: 500; flex: 1; line-height: 1.4; }
+    .faq-arrow { font-size: 11px; color: var(--text-tertiary); flex-shrink: 0; margin-top: 3px; transition: transform 0.2s; }
+    .faq-arrow.open { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 0 14px 36px; font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+    .faq-a.visible { display: block; }
+    .faq-a a { color: var(--text-info); text-decoration: none; }
+    .faq-a a:hover { opacity: 0.7; }
+    .faq-item.hidden { display: none; }
+
+    /* Quick links */
+    .quick-links { padding: 0 1.25rem 1.25rem; }
+    .quick-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid var(--border); text-decoration: none; transition: opacity 0.15s; }
+    .quick-link:last-child { border-bottom: none; }
+    .quick-link:hover { opacity: 0.7; }
+    .quick-link-label { font-size: 13px; color: var(--text-info); }
+    .quick-link-arrow { font-size: 12px; color: var(--text-tertiary); }
+    .footer { text-align: center; padding: 1rem; font-size: 11px; color: var(--text-tertiary); line-height: 1.6; }
+    .footer a { color: var(--text-tertiary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="card">
+    <div class="header">
+      <svg width="32" height="22" viewBox="0 0 32 22" style="flex-shrink:0;">
+        <rect width="32" height="22" fill="white" rx="2" stroke="#ddd" stroke-width="0.5"/>
+        <circle cx="16" cy="11" r="6" fill="#BC002D"/>
+      </svg>
+      <div>
+        <div class="header-title">よくある質問（パスポート）</div>
+        <div class="header-sub">在サンフランシスコ日本国総領事館</div>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <a href="../passport/">パスポート申請</a>
+      <span>›</span>
+      <span>よくある質問</span>
+    </div>
+
+    <span class="section-label">カテゴリーで絞り込む</span>
+    <div class="filter-tabs">
+      <div class="filter-tab active" onclick="filterFaq('all', this)">すべて</div>
+      <div class="filter-tab" onclick="filterFaq('apply', this)">申請手続き</div>
+      <div class="filter-tab" onclick="filterFaq('photo', this)">写真・書類</div>
+      <div class="filter-tab" onclick="filterFaq('child', this)">子ども・家族</div>
+      <div class="filter-tab" onclick="filterFaq('fee', this)">手数料・受取</div>
+      <div class="filter-tab" onclick="filterFaq('other', this)">その他</div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item" data-cat="apply">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">申請から受取までに何日かかりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">新規発給・切替発給・記載事項変更については、約1か月かかります。2025年3月24日以降、旅券は日本国内で作成のうえ配送されるためです。</div>
+      </div>
+
+      <div class="faq-item" data-cat="apply">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">申請は郵送でできますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">いいえ。当館では郵送によるパスポートの申請は取り扱っておりません。</div>
+      </div>
+
+      <div class="faq-item" data-cat="apply">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">申請はオンラインでできますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい。2023年3月27日以降、旅券の発給申請の一部はオンライン申請が可能です。ただし、在留届をオンラインで登録済みの方に限ります。受取は引き続き来館が必要です。</div>
+      </div>
+
+      <div class="faq-item" data-cat="apply">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">代理人による申請は可能ですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい、可能です。ただし受取は申請者ご本人（乳幼児でも）が来館する必要があります。病気等やむを得ない事情で出頭できない方はあらかじめ当館にご相談ください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="apply">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">パスポートを緊急に発給してもらえますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">ご家族の入院など人道上の理由がある場合には、緊急発給する場合があります。詳しくは当館までお問い合わせください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="photo">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">申請書はダウンロードできますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい。<a href="https://www.mofa.go.jp/mofaj/toko/passport/download/top.html" target="_blank">外務省ホームページ</a>からダウンロードできます。必ず黒インクのペンで記入し、折り曲げないでください。修正液の使用も不可です。</div>
+      </div>
+
+      <div class="faq-item" data-cat="photo">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">旅券用の写真は総領事館で撮れますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">いいえ、館内では撮影できません。当館から5ブロック先の LEETON PHOTO CENTER（480 Davis Court, SF, CA 94111）で撮影できます。写真のカット・貼付は窓口で行いますので、切らずにお持ちください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="photo">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">乳児の写真はどのように撮ればいいですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">白色等の無地の布に寝かせて上から撮影してください。目を閉じていたり、正面を向いていない写真は使用できません。</div>
+      </div>
+
+      <div class="faq-item" data-cat="child">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">未成年者の申請で注意することはありますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">5年旅券の申請のみ可能です。申請書の「法定代理人署名」欄に、親権者の署名（戸籍の記載通り）が必要です。</div>
+      </div>
+
+      <div class="faq-item" data-cat="child">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">子供のサインを親が書いてもいいですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">原則として6歳以上のお子さんには本人の署名をお願いしています。5歳以下のお子さんは親が代筆しても構いません。署名は英語または日本語（漢字・ひらがな・カタカナ）で、枠からはみ出さないよう一行で記入してください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="child">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">家族で申請する場合、戸籍謄本は人数分必要ですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">同じ戸籍に入っている家族が同時に申請する場合は1通で構いません。ただし別々に申請する場合はそれぞれ必要になります。</div>
+      </div>
+
+      <div class="faq-item" data-cat="child">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">子供が二重国籍ですが、どちらのパスポートを使えばいいですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">日本とアメリカ間の旅行には日米両方の有効なパスポートが必要です。日本の出入国は日本のパスポートで、アメリカの出入国はアメリカのパスポートをご使用ください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="child">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">外国人と結婚した場合、パスポートの記載はどうなりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">戸籍上の氏や本籍地の都道府県を変更した場合は、記載事項変更または切替発給の申請が必要です。戸籍上の氏の変更はなく、配偶者の氏の記載のみ希望する場合は別名併記が可能です。</div>
+      </div>
+
+      <div class="faq-item" data-cat="fee">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">手数料はいつ、どのように払いますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">受取の際に現金またはマネーオーダーでお支払いください。オンライン申請の場合はクレジットカードによるオンライン決済も可能です。領事出張サービスの際はマネーオーダーのみとなります。</div>
+      </div>
+
+      <div class="faq-item" data-cat="fee">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">引換証をなくしました。どうすればいいですか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">本人確認のため、運転免許証など政府発行のIDをご持参ください。お子さんの場合は、同じ姓の載った親御さんのIDをご持参ください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="fee">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">パスポート番号は更新すると変わりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい、新しい番号になります。また旧パスポートは失効手続き後に返納となります。</div>
+      </div>
+
+      <div class="faq-item" data-cat="other">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">パスポートの残存有効期間が少ないと渡航できないと言われました。</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">入国に必要なパスポートの残存有効期間は、滞在期間・入国目的・渡航先の国によって異なります。詳しくは渡航先国の大使館または領事館に直接ご確認ください。</div>
+      </div>
+
+      <div class="faq-item" data-cat="other">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">古いパスポートのアメリカのビザはどうなりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">アメリカのビザは旧パスポートが失効しても効力は変わりません。新旧パスポート2冊を所持することでアメリカへの出入国が可能です。なお、外国のビザを当館で転記することはできません。</div>
+      </div>
+
+      <div class="faq-item" data-cat="other">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <span class="faq-q-text">遠隔地に住んでいますが特別なサービスはありますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">フレズノ・リノ・ラスベガスにおいて領事出張サービスを実施しています。詳細は<a href="../consular-service/">領事出張サービスのページ</a>をご確認ください。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick links -->
+  <div class="card">
+    <span class="section-label">関連する手続き</span>
+    <div class="quick-links">
+      <a class="quick-link" href="../passport/">
+        <span class="quick-link-label">パスポート申請トップ</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+      <a class="quick-link" href="../photo/">
+        <span class="quick-link-label">申請用写真について</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+      <a class="quick-link" href="../consular-service/">
+        <span class="quick-link-label">領事出張サービス</span>
+        <span class="quick-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    このページは個人によるリデザインのプロトタイプです。<br>
+    公式情報は <a href="https://www.sf.us.emb-japan.go.jp/itpr_ja/m02_01_04.html" target="_blank" rel="noopener">在サンフランシスコ総領事館の公式サイト</a> をご確認ください。
+  </div>
+</div>
+
+<script>
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const arrow = el.querySelector('.faq-arrow');
+    const isOpen = answer.classList.contains('visible');
+    answer.classList.toggle('visible', !isOpen);
+    arrow.classList.toggle('open', !isOpen);
+  }
+
+  function filterFaq(cat, tabEl) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tabEl.classList.add('active');
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+        item.querySelector('.faq-a').classList.remove('visible');
+        item.querySelector('.faq-arrow').classList.remove('open');
+      }
+    });
+  }
+</script>
+</body>
+</html>
